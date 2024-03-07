@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 
 const app = express();
 dotenv.config();
+app.use(express.json());
 
 try {
   mongoose
