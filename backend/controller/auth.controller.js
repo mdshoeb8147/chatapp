@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
+import generateJwtToken from "../utils/jwtGenerate.js";
 export const signup = async (req, res) => {
   try {
     const { fullName, username, email, password, confirmPassword, gender } =
@@ -28,6 +29,7 @@ export const signup = async (req, res) => {
       gender,
       profilePic: gender === "Male" ? boyProfilePic : girlProfilePic,
     });
+    generateJwtToken(newUser._id, res);
     await newUser.save();
     res.status(201).json({
       message: "User created successfully",
