@@ -63,7 +63,8 @@ res.status(200).json({"user logged in" })
 export const logout = (req, res) => {
 
 try {
-  res.cookie("jwt","",)
+  res.cookie("jwt","",{maxAge:0})
+  res.status(200).json({"user logged out successful"})
   
 } catch (error) {
   res.status(500).json({
