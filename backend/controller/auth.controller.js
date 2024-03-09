@@ -42,34 +42,30 @@ export const signup = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
 
-try {
-const {username ,password}=req.body  
-const user = await User.findOne({username})
-
-const isPassword =  bcryptjs.compare(user?.password, password)
-if (!user || isPassword) {
-  return res.status(400).json({ error: " invalid credentials " });
-}
-generateJwtToken()
-res.status(200).json({"user logged in" })
-
-} catch (error) {
+    const isPassword = bcryptjs.compare(user?.password, password);
+    if (!user || isPassword) {
+      return res.status(400).json({ error: " invalid credentials " });
+    }
+    generateJwtToken();
+    res.status(200).json("user logged in");
+  } catch (error) {
     res.status(500).json({
       error: "internal server error",
     });
-}};
+  }
+};
 
 export const logout = (req, res) => {
-
-try {
-  res.cookie("jwt","",{maxAge:0})
-  res.status(200).json({"user logged out successful"})
-  
-} catch (error) {
-  res.status(500).json({
+  try {
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json("user logged out successful");
+  } catch (error) {
+    res.status(500).json({
       error: "internal server error",
     });
-}
-
+  }
 };
