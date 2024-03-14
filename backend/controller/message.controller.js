@@ -22,6 +22,10 @@ export const sendMessage = async (req, res) => {
     if (newMessage) {
       conversion.messages.push(newMessage._id);
     }
+
+    await conversion.save();
+    await newMessage.save();
+
     res.status(201).json(newMessage);
   } catch (error) {
     res.status(500).json({
