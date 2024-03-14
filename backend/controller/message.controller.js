@@ -23,9 +23,10 @@ export const sendMessage = async (req, res) => {
       conversion.messages.push(newMessage._id);
     }
 
-    await conversion.save();
-    await newMessage.save();
+    // await conversion.save();
+    // await newMessage.save();
 
+    await Promise.all([conversion.save(), newMessage.save()]);
     res.status(201).json(newMessage);
   } catch (error) {
     res.status(500).json({
