@@ -6,6 +6,18 @@ const Login = () => {
           Login
           <span className="text-blue-500 ml-3">ChatApp</span>
         </h1>
+        <form>
+          <div>
+            <label className="label p-2">
+              <span className="text-base label-text">Username</span>
+            </label>
+            <input
+              className="w-full input input-bordered h-10"
+              type="text"
+              placeholder="Enter Username"
+            />
+          </div>
+        </form>
       </div>
     </div>
   );
