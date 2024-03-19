@@ -52,7 +52,7 @@ const SignUp = () => {
             </div>
             <a
               href="#"
-              className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
+              className="text-sm hover:underline hover:text-blue-600 mb-2 mt-2 inline-block"
             >
               already have an account?
             </a>
