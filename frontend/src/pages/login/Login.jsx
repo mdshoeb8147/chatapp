@@ -1,6 +1,11 @@
 const Login = () => {
   return (
     <>
+      {/* <div>
+        <div className="">
+          <h1 className="text-blue-500 text-3xl mb-80 ">ChatApp</h1>
+        </div>
+      </div> */}
       <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
         <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10">
           <h1 className="text-3xl font-semibold text-center text-gray-300">
